@@ -14,13 +14,22 @@ namespace ConsoleTester
         {
             Creature playerOne = new Creature("Billbooo", CreatureType.Hobbit);
             Map gameMap = new Map();
-            
+            string ns = gameMap.GameMap.ToString();
+            for (int i = 0; i < ns.Length; i++)
+            {
+                if (ns[i] == '~')                
+                    Console.ForegroundColor = ConsoleColor.Cyan;
 
+                if (ns[i] == '*')
+                    Console.ForegroundColor = ConsoleColor.Red;
 
-            
-            Console.WriteLine();
-            Console.SetCursorPosition(1, 2);
-            Console.Write(gameMap.ToString());
+                if (ns[i] == '-' || ns[i] == '(' || ns[i] == ')')
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+
+                Console.Write(ns[i]);
+
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+            }
 
         }
     }
