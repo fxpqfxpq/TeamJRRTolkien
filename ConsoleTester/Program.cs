@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CrystallBallGame;
+using CrystallBallGame.UI;
 
 namespace ConsoleTester
 {
@@ -12,9 +13,9 @@ namespace ConsoleTester
         static void Main(string[] args)
         {
             Creature playerOne = new Creature("Billbooo", CreatureType.Hobbit);
-                    
+            StringBuilder map = Map.DrawMap();
 
-            Console.WriteLine();
+            Console.WriteLine(map.ToString());
 
         }
     }
