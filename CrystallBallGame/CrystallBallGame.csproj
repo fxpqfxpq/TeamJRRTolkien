@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Creature.cs" />
     <Compile Include="CreatureType.cs" />
+    <Compile Include="DrawEngine.cs" />
     <Compile Include="ImproperlyDefinedCreatureException.cs" />
     <Compile Include="ImproperlyDefinedItemException.cs" />
     <Compile Include="Item.cs" />

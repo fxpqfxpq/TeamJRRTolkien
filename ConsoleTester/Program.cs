@@ -13,9 +13,14 @@ namespace ConsoleTester
         static void Main(string[] args)
         {
             Creature playerOne = new Creature("Billbooo", CreatureType.Hobbit);
-            StringBuilder map = Map.DrawMap();
+            Map gameMap = new Map();
+            
 
-            Console.WriteLine(map.ToString());
+
+            
+            Console.WriteLine();
+            Console.SetCursorPosition(1, 2);
+            Console.Write(gameMap.ToString());
 
         }
     }
