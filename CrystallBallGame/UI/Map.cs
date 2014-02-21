@@ -4,7 +4,13 @@
     using System.Text;
     public class Map
     {
-        public static StringBuilder DrawMap()
+        public StringBuilder GameMap { get; private set; }
+
+        public Map()
+        {
+            this.GameMap = CreateMap();
+        }
+        public static StringBuilder CreateMap()
         {
             StringBuilder map = new StringBuilder();
             map.AppendLine(new string('_', 69));
