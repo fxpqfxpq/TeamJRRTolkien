@@ -31,6 +31,8 @@ namespace ConsoleTester
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
             }
 
+            playerOne.Draw();
+
         }
     }
 }
