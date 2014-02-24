@@ -42,9 +42,14 @@
     <Compile Include="Creature.cs" />
     <Compile Include="CreatureType.cs" />
     <Compile Include="DrawEngine.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="IDead.cs" />
+    <Compile Include="IDrawable.cs" />
+    <Compile Include="IMovable.cs" />
     <Compile Include="ImproperlyDefinedCreatureException.cs" />
     <Compile Include="ImproperlyDefinedItemException.cs" />
     <Compile Include="Item.cs" />
+    <Compile Include="Hero.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UI\Map.cs" />
   </ItemGroup>

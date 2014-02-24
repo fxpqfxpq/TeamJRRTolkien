@@ -12,11 +12,17 @@
         private int currentExperience;
         private CreatureType creatureType;
 
+        /* 
+         * Petar Nikov [note]: Think that this need to be moved inside Hero and Enemy classes
+         * so in time of creation of Hero or Enemy to set their shape and/or position
+        */
+
         //creature shape "*", positon of creature initialization
         private const char cratureShape = '*';
         private static int startPosRow = 11;
         private static int startPosCol = 58;
 
+        
         public int CurrPosRow { get; private set; }
         public int CurrPosCol { get; private set; }
 
