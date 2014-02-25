@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Armour.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="CreatureType.cs" />
     <Compile Include="DrawEngine.cs" />

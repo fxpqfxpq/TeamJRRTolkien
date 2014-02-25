@@ -6,7 +6,12 @@
     public class Creature
     {
         protected const int MaximalExperience = 3000; 
-        protected const int InitialExperience = 50;
+        protected const int InitialExperience = 100;
+        protected int damage;
+        protected int strength;
+        protected int magery;
+        protected int resistanceSpells;
+        protected int creatureLevel;
 
         private  string name;
         private int currentExperience;
@@ -86,6 +91,21 @@
             {
                 this.currentExperience = value;
             }
+        }
+
+        public void UpdateLevel()
+        {
+            this.creatureLevel = this.currentExperience % 100;
+        }
+
+        public void UpdateAttributes()
+        {
+            this.damage = 5 * this.creatureLevel;
+            this.strength = 10 * this.creatureLevel;
+            this.magery = 2 * this.creatureLevel;
+            this.resistanceSpells = this.creatureLevel;
+
+            // [note] Nina: item bonus points to be added shortly
         }
 
 
