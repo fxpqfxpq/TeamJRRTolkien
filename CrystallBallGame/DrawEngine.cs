@@ -1,7 +1,7 @@
 ﻿namespace CrystallBallGame
 {
     using System;
-    class DrawEngine
+    public class DrawEngine
     {
         //Draw a single character at the given console coordinates
         public static void DrawCharOnPosition(int posX, int posY, char c, ConsoleColor color = ConsoleColor.White)

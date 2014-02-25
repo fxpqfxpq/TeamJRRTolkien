@@ -10,6 +10,7 @@
         {
             this.GameMap = CreateMap();
         }
+
         public static StringBuilder CreateMap()
         {
             StringBuilder map = new StringBuilder();

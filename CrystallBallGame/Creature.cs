@@ -13,18 +13,20 @@
         private CreatureType creatureType;
 
         /* 
-         * Petar Nikov [note]: Think that this need to be moved inside Hero and Enemy classes
+         * Petar Nikov [note]: I think that this need to be moved inside Hero and Enemy classes
          * so in time of creation of Hero or Enemy to set their shape and/or position
+         * 
+         * and this is begging for attribute :-)
         */
 
         //creature shape "*", positon of creature initialization
-        private const char cratureShape = '*';
-        private static int startPosRow = 11;
-        private static int startPosCol = 58;
+        //private const char cratureShape = '*';
+        //private static int startPosRow = 11;
+        //private static int startPosCol = 58;
 
         
-        public int CurrPosRow { get; private set; }
-        public int CurrPosCol { get; private set; }
+        //public int CurrPosRow { get; private set; }
+        //public int CurrPosCol { get; private set; }
 
 
         public Creature(string name, CreatureType creatureType)
@@ -34,8 +36,8 @@
 
             CurrentExperience = InitialExperience;
             
-            this.CurrPosRow = startPosRow;
-            this.CurrPosCol = startPosCol;
+            //this.CurrPosRow = startPosRow;
+            //this.CurrPosCol = startPosCol;
         }
 
         public string Name
@@ -87,46 +89,46 @@
         }
 
 
-        //Moving the creature
-        public void MoveLeft()
-        {
-            this.CurrPosCol--;
-            if (this.CurrPosCol < 1)
-            {
-                this.CurrPosCol = 1;
-            }
-        }
+        ////Moving the creature
+        //public void MoveLeft()
+        //{
+        //    this.CurrPosCol--;
+        //    if (this.CurrPosCol < 1)
+        //    {
+        //        this.CurrPosCol = 1;
+        //    }
+        //}
 
-        public void MoveRight()
-        {
-            this.CurrPosCol++;
-            if (this.CurrPosCol> 67)
-            {
-                this.CurrPosCol = 67;
-            }
-        }
+        //public void MoveRight()
+        //{
+        //    this.CurrPosCol++;
+        //    if (this.CurrPosCol> 67)
+        //    {
+        //        this.CurrPosCol = 67;
+        //    }
+        //}
 
-        public void MoveUp()
-        {
-            this.CurrPosRow--;
-            if (this.CurrPosRow < 1)
-            {
-                this.CurrPosRow = 1;
-            }
-        }
+        //public void MoveUp()
+        //{
+        //    this.CurrPosRow--;
+        //    if (this.CurrPosRow < 1)
+        //    {
+        //        this.CurrPosRow = 1;
+        //    }
+        //}
 
-        public void MoveDown()
-        {
-            this.CurrPosRow++;
-            if (this.CurrPosRow > 20)
-            {
-                this.CurrPosRow = 20;
-            }
-        }
+        //public void MoveDown()
+        //{
+        //    this.CurrPosRow++;
+        //    if (this.CurrPosRow > 20)
+        //    {
+        //        this.CurrPosRow = 20;
+        //    }
+        //}
 
-        public void Draw()
-        {
-            DrawEngine.DrawCharOnPosition(this.CurrPosCol, this.CurrPosRow, cratureShape, ConsoleColor.Red);
-        }
+        //public void Draw()
+        //{
+        //    DrawEngine.DrawCharOnPosition(this.CurrPosCol, this.CurrPosRow, cratureShape, ConsoleColor.Red);
+        //}
     }
 }
