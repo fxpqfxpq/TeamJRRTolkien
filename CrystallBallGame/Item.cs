@@ -5,11 +5,11 @@
 
     public abstract class Items
     {
-        private string name;
+        protected string name;
+        protected int pointValue; // how many points it adds to the Creature's attributes
 
         public Items(string name)
         {
-            this.ItemType = this.GetType().Name;
             this.Name = name;
         }
 
@@ -30,7 +30,5 @@
                 this.name = value;
             }
         }
-
-        public string ItemType { get; private set; }
     }
 }

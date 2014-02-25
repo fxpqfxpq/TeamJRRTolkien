@@ -39,9 +39,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Armour.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="CreatureType.cs" />
+    <Compile Include="DamageItem.cs" />
     <Compile Include="DrawEngine.cs" />
     <Compile Include="Enemy.cs" />
     <Compile Include="IControllable.cs" />
