@@ -53,8 +53,11 @@
     <Compile Include="ImproperlyDefinedItemException.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Hero.cs" />
+    <Compile Include="MageryItem.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ResistingSpellsItem.cs" />
+    <Compile Include="StrengthItem.cs" />
     <Compile Include="UI\Map.cs" />
     <Compile Include="WorldObject.cs" />
   </ItemGroup>
