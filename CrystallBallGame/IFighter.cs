@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CrystallBallGame
 {
-    public interface IDead
+    public interface IFighter : IControllable
     {
-        bool IsDead { get; }
-
-        int HitPoints
+        int AttackPoints
         {
             get;
-            set;
         }
+
+        int DefensePoints
+        {
+            get;
+        }
+
 
     }
 }

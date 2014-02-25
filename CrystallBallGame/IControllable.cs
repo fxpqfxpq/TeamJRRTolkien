@@ -2,18 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace CrystallBallGame
 {
-    public interface IDead
+    public interface IControllable : IDead
     {
-        bool IsDead { get; }
-
-        int HitPoints
+        string Name
         {
             get;
-            set;
         }
-
     }
 }
