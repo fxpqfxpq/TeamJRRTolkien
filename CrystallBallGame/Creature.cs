@@ -1,17 +1,22 @@
 ﻿namespace CrystallBallGame
 {
     using System;
+    using System.Collections.Generic;
     using System.Text.RegularExpressions;
+    
     
     public class Creature
     {
         protected const int MaximalExperience = 3000; 
         protected const int InitialExperience = 100;
+        
         protected int damage;
         protected int strength;
         protected int magery;
         protected int resistanceSpells;
         protected int creatureLevel;
+
+        protected List<Items> creatureInventory;
 
         private  string name;
         private int currentExperience;
@@ -40,6 +45,7 @@
             this.CreatureType = creatureType;
 
             CurrentExperience = InitialExperience;
+            creatureInventory = new List<Items>();
             
             //this.CurrPosRow = startPosRow;
             //this.CurrPosCol = startPosCol;
@@ -104,10 +110,12 @@
             this.strength = 10 * this.creatureLevel;
             this.magery = 2 * this.creatureLevel;
             this.resistanceSpells = this.creatureLevel;
-
-            // [note] Nina: item bonus points to be added shortly
         }
 
+        public void AddItemToInventory(Items item)
+        {
+            this.creatureInventory.Add(item);
+        }
 
         ////Moving the creature
         //public void MoveLeft()
