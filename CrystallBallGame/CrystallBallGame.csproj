@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BattleEngine.cs" />
+    <Compile Include="AllowedEquipment.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="CreatureType.cs" />
     <Compile Include="DamageItem.cs" />
