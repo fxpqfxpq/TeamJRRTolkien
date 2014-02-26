@@ -42,26 +42,31 @@ namespace ConsoleTester
 
             Hero playerOne = new Hero("Billbooo", CreatureType.Hobbit, playerX, playerY, heroMinX, heroMaxX, heroMinY, heroMaxY);
 
-            DrawMap(currMap, MapX, MapY);
+            //DrawMap(currMap, MapX, MapY);
 
+            
+
+            Map.DrawMap(MapX, MapY);
             playerOne.Draw();
 
-
-            Console.WriteLine();
+            Console.ReadKey();
 
             while (true)
             {
-                
-                playerOne.Draw();
-                playerX = playerOne.X;
-                playerY = playerOne.Y;
 
-                DrawMap(currMap, 8, 2);
+                
+                //playerX = playerOne.X;
+                //playerY = playerOne.Y;
+
+                //DrawMap(currMap, 8, 2);
+               
                 if (Console.KeyAvailable)
                 {
                     Console.Clear();
                     playerOne.Move();
                 }
+                Map.DrawMap(MapX, MapY);
+                playerOne.Draw();
                 Console.CursorVisible = false;
             }
             
@@ -99,52 +104,7 @@ namespace ConsoleTester
             }
         }
 
-        //testing player moving
-        public static void Move()
-        {
-            if (Console.KeyAvailable)
-            {
-                ConsoleKeyInfo pressedKey = Console.ReadKey(true);
-
-                while (Console.KeyAvailable)
-                {
-                    Console.ReadKey(true);
-                }
-
-                if (pressedKey.Key == ConsoleKey.LeftArrow)
-                {
-                    if (playerX - 1 >= MinWidth)
-                    {
-                        playerX--;
-                    }
-                }
-
-                if (pressedKey.Key == ConsoleKey.RightArrow)
-                {
-                    if (playerX + 1 < MaxWidth)
-                    {
-                        playerX++;
-                    }
-                }
-
-                if (pressedKey.Key == ConsoleKey.UpArrow)
-                {
-                    if (playerY - 1 >= MinWidth)
-                    {
-                        playerY--;
-                    }
-                }
-
-                if (pressedKey.Key == ConsoleKey.DownArrow)
-                {
-                    if (playerY + 1 < MaxHeight)
-                    {
-                        playerY++;
-                    }
-                }
-            }
-        }
-
+        
         //testing player drawing
         private static void DrawPlayer()
         {

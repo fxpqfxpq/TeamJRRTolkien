@@ -16,7 +16,7 @@
         public char[,] MapLevel { get; private set; }
         
 
-        public static char[,] CreateMap()
+        private static char[,] CreateMap()
         {
             StringBuilder result = new StringBuilder();
             char[,] currMap = new char[MapHeight, MapWidth];
@@ -58,5 +58,36 @@
             return currMap;
         }
 
+        public static void DrawMap(int startX, int startY)
+        {
+            char[,] chArr = CreateMap();
+
+            ConsoleColor currColor = ConsoleColor.DarkGreen;
+            Console.SetCursorPosition(startX, startY);
+
+            for (int row = 0; row < chArr.GetLength(0); row++)
+            {
+                for (int col = 0; col < chArr.GetLength(1); col++)
+                {
+                    if (chArr[row, col] == '~')
+                        currColor = ConsoleColor.Cyan;
+
+                    if (chArr[row, col] == '-' || chArr[row, col] == '(' || chArr[row, col] == ')')
+                        currColor = ConsoleColor.Yellow;
+
+                    char currSymbol = chArr[row, col];
+
+                    //if (startX + col == playerX && startY + row == playerY)
+                    //{
+                    //    currSymbol = playerSymbol;
+                    //}
+
+                    Console.SetCursorPosition(startX + col, startY + row);
+                    Console.ForegroundColor = currColor;
+                    Console.Write(currSymbol);
+                    currColor = ConsoleColor.DarkGreen; //reset default color
+                }
+            }
+        }
     }
 }
