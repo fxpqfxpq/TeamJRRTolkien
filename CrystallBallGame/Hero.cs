@@ -8,10 +8,10 @@
         private const char heroSymbol = (char)2;
 
         //properties for where it can go
-        public int MinWidth { get; protected set; }
-        public int MaxWidth { get; protected set; }
-        public int MinHeight { get; protected set; }
-        public int MaxHeight { get; protected set; }
+        public int MinWidth { get;  set; }
+        public int MaxWidth { get; set; }
+        public int MinHeight { get; set; }
+        public int MaxHeight { get; set; }
 
         public Hero(string name, CreatureType creatureType)
         :base(name, creatureType)
@@ -59,7 +59,7 @@
 
                 if (pressedKey.Key == ConsoleKey.UpArrow)
                 {
-                    if (this.Y - 1 >= MinWidth)
+                    if (this.Y - 1 >= MinHeight)
                     {
                         this.Y--;
                     }
@@ -88,7 +88,6 @@
                 this.Y 
                 
             };
-
             DrawEngine.DrawSymbolAtCoordinates(heroCoordinates, heroSymbol, heroColor);
         }
 

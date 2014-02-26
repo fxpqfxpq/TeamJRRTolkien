@@ -21,8 +21,8 @@
         private  string name;
         private int currentExperience;
         private CreatureType creatureType;
-        public int X { get; protected set; }
-        public int Y { get; protected set; }
+        public int X { get; set; }
+        public int Y { get; set; }
 
         /* 
          * Petar Nikov [note]: I think that this need to be moved inside Hero and Enemy classes

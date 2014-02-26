@@ -6,7 +6,7 @@
     {
         private const int MapWidth = 71;
         private const int MapHeight = 22;
-        private char[,] mapLevel;
+        
 
         public Map()
         {

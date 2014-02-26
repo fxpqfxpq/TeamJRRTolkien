@@ -12,13 +12,15 @@ namespace ConsoleTester
     class Program
     {
         //testing player
-        public static int playerX = 2;
-        public static int playerY = 5;
+        public static int playerX = 9;
+        public static int playerY = 3;
         public static char playerSymbol = (char)2;
         const int MaxWidth = 90;
         const int MinWidth = 0;
         const int MaxHeight = 30;
-        const int MinHeight = 30;
+        const int MinHeight = 0;
+        const int MapX = 8;
+        const int MapY = 2;
 
         static void Main(string[] args)
         {
@@ -29,29 +31,40 @@ namespace ConsoleTester
             Console.BufferWidth = Console.WindowWidth = 90;
             Console.CursorVisible = false;
 
-            Hero playerOne = new Hero("Billbooo", CreatureType.Hobbit);
+            
 
             Map map = new Map();
             char[,] currMap = map.MapLevel;
-            DrawMap(currMap, 8, 2);
-            DrawPlayer();
+            int heroMinX = MinWidth+MapX;
+            int heroMaxX = MinWidth+ MapX + currMap.GetLength(1) - 2; //-2 two two empty chars at the end of line
+            int heroMinY = MinHeight + MapY;
+            int heroMaxY = MinHeight + MapY + currMap.GetLength(0);
+
+            Hero playerOne = new Hero("Billbooo", CreatureType.Hobbit, playerX, playerY, heroMinX, heroMaxX, heroMinY, heroMaxY);
+
+            DrawMap(currMap, MapX, MapY);
+
+            playerOne.Draw();
 
 
             Console.WriteLine();
 
             while (true)
             {
-                DrawMap(currMap, 8, 2);
-                DrawPlayer();
+                
+                playerOne.Draw();
+                playerX = playerOne.X;
+                playerY = playerOne.Y;
 
+                DrawMap(currMap, 8, 2);
                 if (Console.KeyAvailable)
                 {
                     Console.Clear();
-                    Move();
+                    playerOne.Move();
                 }
                 Console.CursorVisible = false;
             }
-            Console.WriteLine();
+            
 
         }
 
