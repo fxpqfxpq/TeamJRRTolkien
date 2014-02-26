@@ -6,14 +6,24 @@ namespace CrystallBallGame
 {
     public class DamageItem : Items
     {
-        private const Dictionary<string, int> pointValues = new Dictionary<string, int> { { "Long sword", 1 }, { "Double bladed sword", 2 }, { "One handed sword", 3 }, { "Axe", 4 }, { "Magical sword", 5 }, { "Bow", 1 }, { "Longbow", 2 }, {"Bloodrage talisman", 1}, {"Luck talisman", 2} };
-
-        public DamageItem(string name, int pointValue, int requiredLevel, int stackable)
+        public DamageItem(string name, int requiredLevel, int stackable)
             : base(name, requiredLevel, stackable)
         {
-            this.pointValue = pointValues[name];
         }
 
         //public int PointValue { get { return this.pointValue; } }
+
+        public override void GenerateDictionaries()
+        {
+            this.pointValues.Add("Long sword", 1);
+            this.pointValues.Add("Double bladed sword", 2);
+            this.pointValues.Add("One handed sword", 3);
+            this.pointValues.Add("Axe", 4);
+            this.pointValues.Add("Magical sword", 5);
+            this.pointValues.Add("Bow", 1);
+            this.pointValues.Add("Longbow", 2);
+            this.pointValues.Add("Bloodrage talisman", 1);
+            this.pointValues.Add("Luck talisman", 2);
+        }
     }
 }

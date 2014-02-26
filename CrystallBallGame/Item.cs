@@ -1,10 +1,13 @@
 ﻿namespace CrystallBallGame
 {
     using System;
+    using System.Collections.Generic;
     using System.Text.RegularExpressions;
 
     public abstract class Items
     {
+        protected readonly Dictionary<string, int> pointValues = new Dictionary<string, int>();
+
         protected string name;
         protected int pointValue; // how many points it adds to the Creature's attributes
         protected int requiredLevel; // required Hero level to use item
@@ -16,6 +19,9 @@
             this.name = name;
             this.requiredLevel = requiredLevel;
             this.stackable = stackable;
+                        
+            this.GenerateDictionaries();
+            this.pointValue = pointValues[name];
         }
 
         public int PointValue { get { return this.pointValue; } }
@@ -47,5 +53,7 @@
                 this.name = value;
             }
         }
+
+        public abstract void GenerateDictionaries();
     }
 }
