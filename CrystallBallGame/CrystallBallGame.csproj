@@ -60,7 +60,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ResistingSpellsItem.cs" />
     <Compile Include="StrengthItem.cs" />
+    <Compile Include="UI\ExitLogo.cs" />
+    <Compile Include="UI\GuideLogo.cs" />
+    <Compile Include="UI\Logo.cs" />
     <Compile Include="UI\Map.cs" />
+    <Compile Include="UI\Menu.cs" />
+    <Compile Include="UI\ScoreLogo.cs" />
+    <Compile Include="UI\StartLogo.cs" />
     <Compile Include="WorldObject.cs" />
   </ItemGroup>
   <ItemGroup>

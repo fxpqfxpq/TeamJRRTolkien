@@ -76,7 +76,8 @@
                         currColor = ConsoleColor.Yellow;
 
                     char currSymbol = chArr[row, col];
-
+                    
+                    //this is a huge drawback maybe to move it in GameEngine
                     //if (startX + col == playerX && startY + row == playerY)
                     //{
                     //    currSymbol = playerSymbol;

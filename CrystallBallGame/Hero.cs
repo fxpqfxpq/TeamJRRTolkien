@@ -85,9 +85,9 @@
             List<int> heroCoordinates = new List<int>() 
             { 
                 this.X,
-                this.Y 
-                
+                this.Y    
             };
+
             DrawEngine.DrawSymbolAtCoordinates(heroCoordinates, heroSymbol, heroColor);
         }
 
