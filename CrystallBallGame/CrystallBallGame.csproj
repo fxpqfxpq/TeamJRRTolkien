@@ -62,6 +62,7 @@
     <Compile Include="ResistingSpellsItem.cs" />
     <Compile Include="StrengthItem.cs" />
     <Compile Include="UI\ExitLogo.cs" />
+    <Compile Include="UI\GoodByeLogo.cs" />
     <Compile Include="UI\GuideLogo.cs" />
     <Compile Include="UI\Logo.cs" />
     <Compile Include="UI\Map.cs" />
