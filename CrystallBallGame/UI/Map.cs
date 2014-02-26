@@ -1,21 +1,46 @@
-﻿namespace CrystallBallGame.UI
+﻿/*Here we use Singleton pattern because we need only one map */
+
+namespace CrystallBallGame.UI
 {
     using System;
     using System.Text;
-    public class Map
+    public sealed class Map
     {
         private const int MapWidth = 71;
         private const int MapHeight = 22;
-        
 
-        public Map()
+        //private object instantiated with private constructor
+        private static Map mapInstance = null;
+        private static readonly object padlock = new object();
+
+
+        //Private constructor
+        private Map()
         {
             this.MapLevel = CreateMap();
         }
 
-        public char[,] MapLevel { get; private set; }
-        
+        //Public static property to get the object
+        public static Map GameMap
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (mapInstance == null)
+                    {
+                        mapInstance = new Map();
+                    }
 
+                    return mapInstance;
+                }
+                
+            }
+        }
+
+        public char[,] MapLevel { get; private set; }
+
+        
         private static char[,] CreateMap()
         {
             StringBuilder result = new StringBuilder();
@@ -43,7 +68,7 @@
             result.AppendLine("|~~~ ~~~  ~~~~~~~~`.______________________/ ~~~    |   ~~~ ~~ ~ ~~~~|");
             result.AppendLine("|______~___~~~_______~~_~____~~_____~~___~_~~___~\\_|_/ ~_____~___~__|");
             result.AppendLine(new string('_', 69));
-            
+
             int index = 0;
 
             for (int row = 0; row < currMap.GetLength(0); row++)
@@ -76,7 +101,7 @@
                         currColor = ConsoleColor.Yellow;
 
                     char currSymbol = chArr[row, col];
-                    
+
                     //this is a huge drawback maybe to move it in GameEngine
                     //if (startX + col == playerX && startY + row == playerY)
                     //{

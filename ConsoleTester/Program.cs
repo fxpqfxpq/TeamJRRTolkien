@@ -31,31 +31,34 @@ namespace ConsoleTester
             Console.BufferWidth = Console.WindowWidth = 90;
             Console.CursorVisible = false;
 
-            Map map = new Map();
+            Map map = Map.GameMap;
+
+
+
             char[,] currMap = map.MapLevel;
-            int heroMinX = MinWidth+MapX;
-            int heroMaxX = MinWidth+ MapX + currMap.GetLength(1) - 2; //-2 two two empty chars at the end of line
+            int heroMinX = MinWidth + MapX;
+            int heroMaxX = MinWidth + MapX + currMap.GetLength(1) - 2; //-2 two two empty chars at the end of line
             int heroMinY = MinHeight + MapY;
             int heroMaxY = MinHeight + MapY + currMap.GetLength(0);
 
-            //Hero playerOne = new Hero("Billbooo", CreatureType.Hobbit, playerX, playerY, heroMinX, heroMaxX, heroMinY, heroMaxY);
+            Hero playerOne = new Hero("Billbooo", CreatureType.Hobbit, playerX, playerY, heroMinX, heroMaxX, heroMinY, heroMaxY);
 
-            //Map.DrawMap(MapX, MapY);
-            //playerOne.Draw();
+            Map.DrawMap(MapX, MapY);
+            playerOne.Draw();
 
-            //Console.ReadKey();
+            Console.ReadKey();
 
-            //while (true)
-            //{               
-            //    if (Console.KeyAvailable)
-            //    {
-            //        Console.Clear();
-            //        playerOne.Move();
-            //    }
-            //    Map.DrawMap(MapX, MapY);
-            //    playerOne.Draw();
-            //    Console.CursorVisible = false;
-            //}
+            while (true)
+            {
+                if (Console.KeyAvailable)
+                {
+                    Console.Clear();
+                    playerOne.Move();
+                }
+                Map.DrawMap(MapX, MapY);
+                playerOne.Draw();
+                Console.CursorVisible = false;
+            }
 
             StartLogo st = new StartLogo();
             st.Print(5,10);
