@@ -31,8 +31,13 @@ namespace CrystallBallGame.UI
                 for (int col = 0; col < this.matrix.GetLength(1); col++)
                 {
                     char currSymbol = this.matrix[row, col];
+                    if (char.IsLetter(currSymbol) && this.Selected)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                    }
                     Console.SetCursorPosition(startX + col, startY + row);
                     Console.Write(currSymbol);
+                    Console.ForegroundColor = ConsoleColor.White;
                 }
             }
         }

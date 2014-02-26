@@ -6,8 +6,9 @@ namespace CrystallBallGame.UI
     using System.IO;
     using System.Linq;
 
-    class Menu
+    public class Menu
     {
+        private const int MenuItemHeight = 3;
         private List<Logo> logos;
         public Menu()
         {
@@ -21,8 +22,8 @@ namespace CrystallBallGame.UI
         }
         public void ShowMenu()
         {
-            int choise = 0;
-            PrintMenu(choise);
+            int choice = 0;
+            PrintMenu(choice);
 
             ConsoleKeyInfo inputKey;
 
@@ -33,18 +34,18 @@ namespace CrystallBallGame.UI
                     inputKey = Console.ReadKey();
                     if (inputKey.Key == ConsoleKey.LeftArrow)
                     {
-                        choise--;
-                        choise += 4;
-                        choise %= 4;
+                        choice--;
+                        choice += 4;
+                        choice %= 4;
                     }
                     else if (inputKey.Key == ConsoleKey.RightArrow)
                     {
-                        choise++;
-                        choise %= 4;
+                        choice++;
+                        choice %= 4;
                     }
                     else if (inputKey.Key == ConsoleKey.Enter)
                     {
-                        string myChoise = MakeChoose(choise);
+                        string myChoise = MakeChoose(choice);
                         if (myChoise == "Start")
                         {
                             break;
@@ -59,12 +60,12 @@ namespace CrystallBallGame.UI
                         }
                         else
                         {
-                            //logos.Last().Print();
+                            logos.Last().Print(10,20);
                             Environment.Exit(1);
                         }
                     }
                     Console.Clear();
-                    PrintMenu(choise);
+                    PrintMenu(choice);
                 }
             }
         }
@@ -95,6 +96,9 @@ namespace CrystallBallGame.UI
 
         public void PrintMenu(int choose)
         {
+            int sRow = (Console.BufferHeight / 2) - MenuItemHeight;
+            int sCol = 20;
+
             switch (choose)
             {
                 case 0:
@@ -109,6 +113,20 @@ namespace CrystallBallGame.UI
                 case 3:
                     logos[3].Selected = true;
                     break;
+            }
+
+            for (int index = 0; index < this.logos.Count; index++)
+            {
+                if (this.logos[index].Selected)
+                {
+                    this.logos[index].Print(sCol, sRow);
+                    this.logos[index].Selected = false;
+                }
+                else
+                {
+                    this.logos[index].Print(sCol, sRow);
+                }
+                sCol += 12;
             }
         }
 
