@@ -1,14 +1,15 @@
 ﻿namespace CrystallBallGame
 {
     using System;
+    using System.Collections.Generic;
     public class DrawEngine
     {
         //Draw a single character at the given console coordinates
-        public static void DrawCharOnPosition(int posX, int posY, char c, ConsoleColor color = ConsoleColor.White)
+        public static void DrawSymbolAtCoordinates(List<int> coordinates, char symbol, ConsoleColor color)
         {
-            Console.SetCursorPosition(posX, posY);
+            Console.SetCursorPosition(coordinates[0], coordinates[1]);
             Console.ForegroundColor = color;
-            Console.Write(c);
+            Console.Write(symbol);
         }
 
         //Draw a string at the given console coordinates

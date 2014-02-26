@@ -5,7 +5,7 @@ namespace CrystallBallGame
 
     public interface IMovable
     {
-        void Move(ConsoleKeyInfo pressedKey);
+        void Move();
     }
 
 }

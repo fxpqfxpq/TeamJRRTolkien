@@ -5,7 +5,7 @@
     using System.Text.RegularExpressions;
     
     
-    public class Creature
+    public abstract class Creature
     {
         protected const int MaximalExperience = 3000; 
         protected const int InitialExperience = 100;
@@ -21,6 +21,8 @@
         private  string name;
         private int currentExperience;
         private CreatureType creatureType;
+        public int X { get; protected set; }
+        public int Y { get; protected set; }
 
         /* 
          * Petar Nikov [note]: I think that this need to be moved inside Hero and Enemy classes
@@ -49,6 +51,12 @@
             
             //this.CurrPosRow = startPosRow;
             //this.CurrPosCol = startPosCol;
+        }
+        public Creature(string name, CreatureType creatureType, int x, int y)
+            :this(name, creatureType)
+        {
+            this.X = x;
+            this.Y = y;
         }
 
         public string Name

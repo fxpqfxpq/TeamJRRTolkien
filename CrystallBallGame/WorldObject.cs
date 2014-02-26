@@ -33,5 +33,22 @@ namespace CrystallBallGame
         {
             return this.GetType().Name;
         }
+
+        public bool IsDead
+        {
+            get { throw new NotImplementedException(); }
+        }
+
+        public int HitPoints
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+            set
+            {
+                throw new NotImplementedException();
+            }
+        }
     }
 }

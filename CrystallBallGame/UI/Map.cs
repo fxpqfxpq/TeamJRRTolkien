@@ -4,40 +4,58 @@
     using System.Text;
     public class Map
     {
-        public StringBuilder GameMap { get; private set; }
+        private const int MapWidth = 71;
+        private const int MapHeight = 22;
+        private char[,] mapLevel;
 
         public Map()
         {
-            this.GameMap = CreateMap();
+            this.MapLevel = CreateMap();
         }
 
-        public static StringBuilder CreateMap()
-        {
-            StringBuilder map = new StringBuilder();
-            map.AppendLine(new string('_', 69));
-            map.AppendLine("|~ ~~ ~~~ ~ ~ ~~~ ~ _____.----------._ ~~~  ~~~~ ~~   ~~  ~~~~~ ~~~~|");
-            map.AppendLine("|  _   ~~ ~~ __,---'_       \"         `. ~~~ _,--.  ~~~~ __,---.  ~~|");
-            map.AppendLine("| | \\___ ~~ /      ( )   \"          \"   `-.,' (') \\~~ ~ {  / _\\ \\~~ |");
-            map.AppendLine("|  \\    \\__/_   __(( _)_      (    \"   \"     (_\\_) \\___~ `-.___' \\~~|");
-            map.AppendLine("|~~ \\     (  )_(__)_|( ))  \"   ))      ^   \"   |    \"  \\ ~~ ~~/   /~|");
-            map.AppendLine("|  ~ \\__ (( _( (  ))  ) _)    ((     ^^    \" |   \"    \\_____|    /~~|");
-            map.AppendLine("|~~ ~   \\  ( ))(_)(_)_)|  \"    ))   |\"  \"  \" __,---._ \"  \"   \"  /~~~|");
-            map.AppendLine("|~~~~~~~ |(_ _)| | |   |   \"  (   \"      ,-'~~~ ~~~ `-.   ___  /~ ~ |");
-            map.AppendLine("|~~~~~~~~|  |  |   |   _,--- ,^o^. _ \"  (~~  ~~~~  ~~~ ) /___\\ \\~~ ~|");
-            map.AppendLine("|~~~~~~~/   |      _,----._,'`--'\\.`-._  `._~~_~__~_,-'  |H__|  \\ ~~|");
-            map.AppendLine("|~~~~~~/ \"     _,-' / `\\ ,' / _'  \\`.---.._          __        \" \\~ |");
-            map.AppendLine("|~~~~ / /   .-' , / ' _,'_  -  _ '- _`._ `.`-._    _/- `--.   \" \" \\~|");
-            map.AppendLine("|~~~ / / _-- `---,~.-' __   --  _,---.  `-._   _,-'- / ` \\ \\_   \" |~|");
-            map.AppendLine("| ~ | | -- _    /~/  `-_- _  _,' '  \\ \\_`-._,-'  / --   \\  - \\_   / |");
-            map.AppendLine("|~~ | \\ -      /~~| \"     ,-'_ /-  `_ ._`._`-...._____...._,--'  /~~|");
-            map.AppendLine("| ~~\\  \\_ /   /~~/    ___  `---  ---  - - ' ,--.     ___        |~ ~|");
-            map.AppendLine("|~   \\      /'~~|  \" {o o}   \"         \" \" |~~~ \\_,-' ~ `.     ,'~~ |");
-            map.AppendLine("| ~~ ~|___/'~~~~~\\    \\\"/      \"  \"   \"    /~ ~~   O ~ ~~`-.__/~ ~~~|");
-            map.AppendLine("|~~~ ~~~  ~~~~~~~~`.______________________/ ~~~    |   ~~~ ~~ ~ ~~~~|");
-            map.AppendLine("|______~___~~~_______~~_~____~~_____~~___~_~~___~\\_|_/ ~_____~___~__|");
-            map.AppendLine(new string('_', 69));
+        public char[,] MapLevel { get; private set; }
+        
 
-            return map;
+        public static char[,] CreateMap()
+        {
+            StringBuilder result = new StringBuilder();
+            char[,] currMap = new char[MapHeight, MapWidth];
+
+            result.AppendLine(new string('_', 69));
+            result.AppendLine("|~ ~~ ~~~ ~ ~ ~~~ ~ _____.----------._ ~~~  ~~~~ ~~   ~~  ~~~~~ ~~~~|");
+            result.AppendLine("|  _   ~~ ~~ __,---'_       \"         `. ~~~ _,--.  ~~~~ __,---.  ~~|");
+            result.AppendLine("| | \\___ ~~ /      ( )   \"          \"   `-.,' (') \\~~ ~ {  / _\\ \\~~ |");
+            result.AppendLine("|  \\    \\__/_   __(( _)_      (    \"   \"     (_\\_) \\___~ `-.___' \\~~|");
+            result.AppendLine("|~~ \\     (  )_(__)_|( ))  \"   ))      ^   \"   |    \"  \\ ~~ ~~/   /~|");
+            result.AppendLine("|  ~ \\__ (( _( (  ))  ) _)    ((     ^^    \" |   \"    \\_____|    /~~|");
+            result.AppendLine("|~~ ~   \\  ( ))(_)(_)_)|  \"    ))   |\"  \"  \" __,---._ \"  \"   \"  /~~~|");
+            result.AppendLine("|~~~~~~~ |(_ _)| | |   |   \"  (   \"      ,-'~~~ ~~~ `-.   ___  /~ ~ |");
+            result.AppendLine("|~~~~~~~~|  |  |   |   _,--- ,^o^. _ \"  (~~  ~~~~  ~~~ ) /___\\ \\~~ ~|");
+            result.AppendLine("|~~~~~~~/   |      _,----._,'`--'\\.`-._  `._~~_~__~_,-'  |H__|  \\ ~~|");
+            result.AppendLine("|~~~~~~/ \"     _,-' / `\\ ,' / _'  \\`.---.._          __        \" \\~ |");
+            result.AppendLine("|~~~~ / /   .-' , / ' _,'_  -  _ '- _`._ `.`-._    _/- `--.   \" \" \\~|");
+            result.AppendLine("|~~~ / / _-- `---,~.-' __   --  _,---.  `-._   _,-'- / ` \\ \\_   \" |~|");
+            result.AppendLine("| ~ | | -- _    /~/  `-_- _  _,' '  \\ \\_`-._,-'  / --   \\  - \\_   / |");
+            result.AppendLine("|~~ | \\ -      /~~| \"     ,-'_ /-  `_ ._`._`-...._____...._,--'  /~~|");
+            result.AppendLine("| ~~\\  \\_ /   /~~/    ___  `---  ---  - - ' ,--.     ___        |~ ~|");
+            result.AppendLine("|~   \\      /'~~|  \" {o o}   \"         \" \" |~~~ \\_,-' ~ `.     ,'~~ |");
+            result.AppendLine("| ~~ ~|___/'~~~~~\\    \\\"/      \"  \"   \"    /~ ~~   O ~ ~~`-.__/~ ~~~|");
+            result.AppendLine("|~~~ ~~~  ~~~~~~~~`.______________________/ ~~~    |   ~~~ ~~ ~ ~~~~|");
+            result.AppendLine("|______~___~~~_______~~_~____~~_____~~___~_~~___~\\_|_/ ~_____~___~__|");
+            result.AppendLine(new string('_', 69));
+            
+            int index = 0;
+
+            for (int row = 0; row < currMap.GetLength(0); row++)
+            {
+                for (int col = 0; col < currMap.GetLength(1); col++)
+                {
+                    currMap[row, col] = result[index];
+                    index++;
+                }
+            }
+
+            return currMap;
         }
 
     }

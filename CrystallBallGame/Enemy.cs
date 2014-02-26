@@ -15,5 +15,18 @@
             //TODO
             throw new System.NotImplementedException();
         }
+
+
+        public int HitPoints
+        {
+            get
+            {
+                throw new System.NotImplementedException();
+            }
+            set
+            {
+                throw new System.NotImplementedException();
+            }
+        }
     }
 }
