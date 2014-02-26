@@ -10,9 +10,9 @@ namespace CrystallBallGame
         public MageryItem(string name, int pointValue, int requiredLevel, int stackable)
             : base(name, pointValue, requiredLevel, stackable)
         {
-            //this.pointValue = pointValues[name];
+          //  this.pointValue = pointValues[name];
         }
 
-        //public int PointValue { get { return this.pointValue; } }
+        public int PointValue { get { return this.pointValue; } }
     }
 }
