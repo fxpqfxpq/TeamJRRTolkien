@@ -58,6 +58,7 @@
     <Compile Include="MageryItem.cs" />
     <Compile Include="Point.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Randomizer.cs" />
     <Compile Include="ResistingSpellsItem.cs" />
     <Compile Include="StrengthItem.cs" />
     <Compile Include="UI\ExitLogo.cs" />
