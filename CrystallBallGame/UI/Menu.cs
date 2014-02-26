@@ -1,5 +1,4 @@
-﻿
-namespace CrystallBallGame.UI
+﻿namespace CrystallBallGame.UI
 {
     using System;
     using System.Collections.Generic;
@@ -18,7 +17,7 @@ namespace CrystallBallGame.UI
             this.logos.Add(new GuideLogo());
             this.logos.Add(new ScoreLogo());
             this.logos.Add(new ExitLogo());
-            //this.logos.Add(new GoodByeLogo());
+            this.logos.Add(new GoodByeLogo());
         }
         public void ShowMenu()
         {
@@ -52,15 +51,15 @@ namespace CrystallBallGame.UI
                         }
                         else if (myChoise == "ReadGuide")
                         {
-                            ReadGuide();
+                            GetHelp();
                         }
                         else if (myChoise == "ReadScores")
                         {
-                            ReadScores();
+                            GetScores();
                         }
                         else
                         {
-                            logos.Last().Print(10,20);
+                            logos.Last().Print(0, 0);
                             Environment.Exit(1);
                         }
                     }
@@ -115,7 +114,7 @@ namespace CrystallBallGame.UI
                     break;
             }
 
-            for (int index = 0; index < this.logos.Count; index++)
+            for (int index = 0; index < this.logos.Count - 1 ; index++)
             {
                 if (this.logos[index].Selected)
                 {
@@ -130,7 +129,7 @@ namespace CrystallBallGame.UI
             }
         }
 
-        public void ReadScores()
+        public void GetScores()
         {
             int positionX = 10;
             int positionY = 20;
@@ -156,12 +155,12 @@ namespace CrystallBallGame.UI
             {
                 Console.SetCursorPosition(32, 15);
 
-                Console.WriteLine("NO HIGH SCORES ?");
+                Console.WriteLine("NO HIGH SCORES?");
             }
             ReturnToMainMenu();
         }
 
-        public void ReadGuide()
+        public void GetHelp()
         {
             Console.SetCursorPosition(0, 0);
 
@@ -184,15 +183,16 @@ namespace CrystallBallGame.UI
             else
             {
                 Console.SetCursorPosition(19, 15);
-                Console.WriteLine("File does not exist, ask from developer team");
+                Console.WriteLine("Someone lost this file!");
                 ReturnToMainMenu();
             }
         }
 
         public void ReturnToMainMenu()
         {
-            Console.SetCursorPosition(26, 29);
-            Console.WriteLine("Press [backspace] to return");
+            string msg = "Press [backspace] to return";
+            Console.SetCursorPosition(Console.BufferWidth - (msg.Length / 2), Console.BufferHeight - 5);
+            Console.WriteLine(msg);
             while (true)
             {
                 if (Console.KeyAvailable)
